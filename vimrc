@@ -89,7 +89,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Always use vertical diffs
-set diffopt+=vertical
+set diffopt=vertical,filler,context:4
 
 " " Russian language support
 " set keymap=russian-jcukenwin
