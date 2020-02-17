@@ -1,7 +1,7 @@
 snippet id "UUID" i
 `!p import uuid
 if not snip.c:
-  snip.rv = str(uuid.uuid1())`
+  snip.rv = str(uuid.uuid4())`
 endsnippet
 
 snippet tag "Tag with UUID in hex encoding" i
