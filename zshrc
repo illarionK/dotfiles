@@ -97,18 +97,6 @@ if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-bundleexec()
-{
-  bundle exec $@
-}
-alias be=bundleexec
-
-npmrun()
-{
-  npm run $@
-}
-alias nr=npmrun
-
 alias ne='PATH=$(npm bin):$PATH'
 
 alias path="echo $PATH | tr -s ':' '\n'"
@@ -126,31 +114,19 @@ switchAllPanesToFolderInTmux()
 }
 alias cdpanes=switchAllPanesToFolderInTmux
 
-# ImageMagick
+# Convert images to JPEG with ImageMagick
 tojpeg()
 {
-  parallel --will-cite -j 1 'convert {} -strip -background white -interlace Plane -quality "95%" -mosaic -alpha remove {.}.jpg' ::: $@
+  parallel --will-cite -j 1 --halt 2 'convert {} -strip -background white -interlace Plane -quality "95%" -mosaic -alpha remove {.}.jpg' ::: $@
 }
 
 alias toJPEG=tojpeg
 
-# Tree
+# Clean tree output
 alias tree="tree -I 'node_modules|bower_components|Gemfile*' -F --dirsfirst"
 
 # Run Midnight Commander without subshell to fix slow start times
 alias mc="mc --nosubshell"
-
-# This loads nvm
-export NVM_DIR="/Users/hex/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# Check node version on working dir change
-function nvm_chpwd() {
-  if [ -r $PWD/.nvmrc ]; then
-    nvm use `cat $PWD/.nvmrc`
-  fi
-}
-chpwd_functions=(${chpwd_functions[@]} "nvm_chpwd")
 
 # Activate fzf fuzzy matching
 export FZF_DEFAULT_COMMAND="rg --files --iglob '!*flow-typed*'"
@@ -163,8 +139,10 @@ _fzf_compgen_path() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias rg="rg -i"
+# Enable smart case in ripgrep by default
+alias rg="rg --smart-case"
 
+# List Docker image tags
 function list-docker-tags() {
   wget -q "https://registry.hub.docker.com/v1/repositories/$1/tags" -O - | jq -r '.[].name'
 }
