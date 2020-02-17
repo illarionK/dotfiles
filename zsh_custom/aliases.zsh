@@ -50,6 +50,10 @@ function list-docker-tags() {
   wget -q "https://registry.hub.docker.com/v1/repositories/$1/tags" -O - | jq -r '.[].name'
 }
 
+# Docker cleaning
+alias docker.cleancontainer="docker ps -a -q | xargs docker rm"
+alias docker.cleanimage="docker images --filter dangling=true -q | xargs docker rmi"
+
 # Compress PDF file with GhostScript
 function compress-pdf() {
   gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -dCompatibilityLevel=1.4 -sOutputFile=$2 $1
