@@ -78,8 +78,12 @@ h('${1:div}', {
 endsnippet
 
 snippet test
-test('${1:Untitled Test}', async function(t) {
-	t.truthy(true)${3}
+// 'use strict'
+// const tap = require('tap')
+
+tap.test('${1:Untitled Test}', async function(t) {
+	t.ok(true)
+	${2}
 })
 endsnippet
 
@@ -93,4 +97,14 @@ test('${1:Untitled Test}', function(t) {
 		.then(() => t.end())
 		.catch((err) => t.end(err))
 })
+endsnippet
+
+snippet window
+if (typeof window === 'undefined') {
+  ${1}
+}
+endsnippet
+
+snippet req
+const { ${2} } = require('${1}');
 endsnippet
