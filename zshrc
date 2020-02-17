@@ -126,10 +126,6 @@ switchAllPanesToFolderInTmux()
 }
 alias cdpanes=switchAllPanesToFolderInTmux
 
-# Control iTunes and Spotify
-alias nTune="osascript -e 'tell application \"iTunes\" to next track'"
-alias nSpot="osascript -e 'tell application \"Spotify\" to next track'"
-
 # ImageMagick
 tojpeg()
 {
