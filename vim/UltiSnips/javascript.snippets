@@ -109,3 +109,43 @@ endsnippet
 snippet req
 const { ${2} } = require('${1}');
 endsnippet
+
+snippet "smst?a?t?e?" "State machine state test" r
+t.strictSame(
+	iter.next(),
+	{
+		done: false,
+		value: {
+			...machine.state,
+			name: ${1:IDLE}
+		}
+	},
+	'should yield $1 state${2}'
+)
+endsnippet
+
+snippet "smc?t?x?" "State machine context call test" r
+t.strictSame(
+	iter.next(),
+	{
+		done: false,
+		value: {
+			__type: 'call',
+			func: context.${1:func},
+			args: [${2}]
+		}
+	},
+	'should call $1()'
+)
+endsnippet
+
+snippet "smd?o?n?e?" "State machine complete test" r
+t.deepEqual(
+	iter.next(),
+	{
+		done: true,
+		value: undefined
+	},
+	'should complete'
+)
+endsnippet
