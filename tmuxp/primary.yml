@@ -12,7 +12,6 @@ windows:
       - 'pane'
       - 'pane'
   - window_name: window_two
-    focus: true
     layout: main-horizontal
     options:
       main-pane-height: 45
@@ -21,7 +20,6 @@ windows:
       - 'pane'
       - 'pane'
   - window_name: window_three
-    focus: true
     layout: main-horizontal
     options:
       main-pane-height: 45
