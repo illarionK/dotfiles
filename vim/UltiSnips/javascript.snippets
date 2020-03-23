@@ -158,3 +158,17 @@ t.deepEqual(
 	'should complete'
 )
 endsnippet
+
+snippet "gql" "GraphQL comment" r
+export const query = /* GraphQL */ \`
+${VISUAL}
+\`
+endsnippet
+
+snippet "gqlta?g?" "GraphQL tag" r
+import ${1:gql} from 'graphql-tag'
+
+export const query = $1\`
+${VISUAL}
+\`
+endsnippet
