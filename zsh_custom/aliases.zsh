@@ -32,12 +32,12 @@ alias tree="tree -I 'node_modules|bower_components|Gemfile*' -F --dirsfirst"
 alias mc="mc --nosubshell"
 
 # Activate fzf fuzzy matching
-export FZF_DEFAULT_COMMAND="rg --files --iglob '!*flow-typed*'"
+export FZF_DEFAULT_COMMAND="rg --files --sortr modified --glob '!*Library*' --iglob '!*flow-typed*'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--reverse'
 
 _fzf_compgen_path() {
-  rg --files "$1"
+  rg --files --sortr modified --glob '!*Library*' "$1"
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
