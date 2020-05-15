@@ -109,6 +109,14 @@ test('${1:Untitled Test}', function(t) {
 })
 endsnippet
 
+snippet jest
+import { expect, test } from '@jest/globals'
+
+test('${1:Untitled Test}', async function() {
+	expect(${2:true}).${3:toBeTruthy()}
+})
+endsnippet
+
 snippet window
 if (typeof window === 'undefined') {
   ${1}
