@@ -72,5 +72,5 @@ Changes
 License
 -------
 
-Same as Vim
+Vim License
 
