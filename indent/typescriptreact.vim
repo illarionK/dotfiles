@@ -1,3 +1,4 @@
+exe 'runtime! indent/typescript.vim'
 " Save the current JavaScript indentexpr.
 let b:tsx_ts_indentexpr = &indentexpr
 
@@ -89,13 +90,13 @@ fu! GetTsxIndent()
     " Align '/>' and '>' with '<' for multiline tags.
     " Align end of expression ')' or '}'.
     if l:line =~? s:endtag
-      let ind = ind - &sw
+      let ind = ind - shiftwidth()
     endif
 
     " Then correct the indentation of any TSX following '/>' or '>'.
     " Align start of expression '(' or '{'
     if l:pline =~? s:endtag || l:pline =~? s:startexp
-      let ind = ind + &sw
+      let ind = ind + shiftwidth()
     endif
   else
     if len(b:tsx_ts_indentexpr)

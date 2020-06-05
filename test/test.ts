@@ -1,7 +1,19 @@
+var a = (): string => 123
 var p: Promise<void>
 
 var a = { template: /*eee*/ this.template
 }
+
+type A = [
+    /*test*/ string,
+    /*test*/ string,
+]
+
+var b: unique symbol = 123
+
+var c: readonly t.MyClass<T>[] = 333
+
+c?.test
 
 const COMPILER_PROVIDERS: Array<any[]> = null
 
@@ -49,11 +61,13 @@ type A = 42
 
 
 test({
-  a: test ? // test
+  async a: test ? // test
   test: ee
 })
 
 getSymbolIterator(3) in obj;
+
+const a = (): string => '123'
 
 
 list.reduce((flat: any[], item: T | T[]): T[] => {
@@ -83,3 +97,12 @@ var a = ({a: () => 123})
 enum A {
 
 }
+
+interface FooBar<T extends Record<string, any> = Record<string, any>> {
+  foo: string;
+  bar: number;
+}
+
+[].map(({num}, index) => {
+    const key = `${num}`
+})
