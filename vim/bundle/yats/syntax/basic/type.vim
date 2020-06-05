@@ -1,13 +1,17 @@
 " Types
 syntax match typescriptOptionalMark /?/ contained
 
+syntax cluster typescriptTypeParameterCluster contains=
+  \ typescriptTypeParameter,
+  \ typescriptGenericDefault
+
 syntax region typescriptTypeParameters matchgroup=typescriptTypeBrackets
   \ start=/</ end=/>/
-  \ contains=typescriptTypeParameter
+  \ contains=@typescriptTypeParameterCluster
   \ contained
 
 syntax match typescriptTypeParameter /\K\k*/
-  \ nextgroup=typescriptConstraint,typescriptGenericDefault
+  \ nextgroup=typescriptConstraint
   \ contained skipwhite skipnl
 
 syntax keyword typescriptConstraint extends
@@ -49,7 +53,9 @@ syntax cluster typescriptPrimaryType contains=
   \ typescriptObjectType,
   \ typescriptTupleType,
   \ typescriptTypeQuery,
-  \ typescriptStringLiteralType
+  \ typescriptStringLiteralType,
+  \ typescriptReadonlyArrayKeyword,
+  \ typescriptAssertType
 
 syntax region  typescriptStringLiteralType contained
   \ start=/\z(["']\)/  skip=/\\\\\|\\\z1\|\\\n/  end=/\z1\|$/
@@ -62,19 +68,23 @@ syntax region typescriptParenthesizedType matchgroup=typescriptParens
   \ nextgroup=@typescriptTypeOperator
   \ contained skipwhite skipempty fold
 
-syntax keyword typescriptPredefinedType any number boolean string void never undefined null object unknown
-  \ nextgroup=@typescriptTypeOperator
-  \ contained skipwhite skipempty
-
 syntax match typescriptTypeReference /\K\k*\(\.\K\k*\)*/
   \ nextgroup=typescriptTypeArguments,@typescriptTypeOperator,typescriptUserDefinedType
   \ skipwhite contained skipempty
 
+syntax keyword typescriptPredefinedType any number boolean string void never undefined null object unknown
+  \ nextgroup=@typescriptTypeOperator
+  \ contained skipwhite skipempty
+
+syntax match typescriptPredefinedType /unique symbol/
+  \ nextgroup=@typescriptTypeOperator
+  \ contained skipwhite skipempty
+
 syntax region typescriptObjectType matchgroup=typescriptBraces
   \ start=/{/ end=/}/
-  \ contains=@typescriptTypeMember,typescriptEndColons,@typescriptComments,typescriptAccessibilityModifier
+  \ contains=@typescriptTypeMember,typescriptEndColons,@typescriptComments,typescriptAccessibilityModifier,typescriptReadonlyModifier
   \ nextgroup=@typescriptTypeOperator
-  \ contained skipwhite fold
+  \ contained skipwhite skipnl fold
 
 syntax cluster typescriptTypeMember contains=
   \ @typescriptCallSignature,
@@ -84,8 +94,8 @@ syntax cluster typescriptTypeMember contains=
 
 syntax region typescriptTupleType matchgroup=typescriptBraces
   \ start=/\[/ end=/\]/
-  \ contains=@typescriptType
-  \ contained skipwhite oneline
+  \ contains=@typescriptType,@typescriptComments
+  \ contained skipwhite
 
 syntax cluster typescriptTypeOperator
   \ contains=typescriptUnion,typescriptTypeBracket
@@ -120,6 +130,10 @@ syntax keyword typescriptUserDefinedType is
   \ contained nextgroup=@typescriptType skipwhite skipempty
 
 syntax keyword typescriptTypeQuery typeof keyof
+  \ nextgroup=typescriptTypeReference
+  \ contained skipwhite skipnl
+
+syntax keyword typescriptAssertType asserts
   \ nextgroup=typescriptTypeReference
   \ contained skipwhite skipnl
 
@@ -177,3 +191,6 @@ syntax region typescriptAliasDeclaration matchgroup=typescriptUnion
   \ contains=typescriptConstraint,typescriptTypeParameters
   \ contained skipwhite skipempty
 
+syntax keyword typescriptReadonlyArrayKeyword readonly
+  \ nextgroup=@typescriptPrimaryType
+  \ skipwhite

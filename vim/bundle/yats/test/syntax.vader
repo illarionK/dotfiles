@@ -291,6 +291,24 @@ Execute:
   " TODO
   " AssertEqual 'typescriptMethodAccessor', SyntaxAt(2, 3)
 
+Given typescript (generic default):
+  interface FooBar<T = string> {
+    foo: string
+  }
+Execute:
+  AssertEqual 'typescriptPredefinedType', SyntaxAt(1, 25)
+  AssertEqual 'typescriptMember', SyntaxAt(2, 3)
+
+Given typescript (generic default after extends):
+  interface FooBar<T extends string = string> {}
+Execute:
+  AssertEqual 'typescriptPredefinedType', SyntaxAt(1, 40)
+
+Given typescript (generic default with nested brackets):
+  interface FooBar<T extends string = Record<string, any>> {}
+Execute:
+  AssertEqual 'typescriptPredefinedType', SyntaxAt(1, 45)
+
 Given typescript (object literal generic method):
   var a = {
     test<T>() {}
@@ -483,3 +501,238 @@ Given typescript (template string in object):
   var a = { test: css`color: red` }
 Execute:
   AssertEqual 'typescriptTemplate', SyntaxAt(1, 20)
+
+Given typescript (unicode escape characters in strings):
+  const str = 'test\u200btest'
+Execute:
+  AssertEqual 'typescriptString', SyntaxAt(1, 17)
+  AssertEqual 'typescriptSpecial', SyntaxAt(1, 18)
+  AssertEqual 'typescriptString', SyntaxAt(1, 24)
+
+Given typescript (decorator generics):
+  @foo<string>()
+  class FooBar {}
+Execute:
+  AssertEqual 'typescriptPredefinedType', SyntaxAt(1, 6)
+
+Given typescript (simple arrow function):
+  let a = ( a: string ) => { console.log(arg) }
+Execute:
+  AssertEqual 'typescriptParens', SyntaxAt(1, 9)
+  AssertEqual 'typescriptCall', SyntaxAt(1, 11)
+  AssertEqual 'typescriptParens', SyntaxAt(1, 21)
+  AssertEqual 'typescriptArrowFuncArg', SyntaxAt(1, 22)
+  AssertEqual 'typescriptArrowFunc', SyntaxAt(1, 23)
+
+Given typescript (spread arguments in arrow function):
+  let a = (...a: any[]) => {}
+Execute:
+  AssertEqual 'typescriptParens', SyntaxAt(1, 9)
+  AssertEqual 'typescriptRestOrSpread', SyntaxAt(1, 10)
+  AssertEqual 'typescriptCall', SyntaxAt(1, 13)
+
+Given typescript (spread arguments in arrow function with return type):
+  let a = (...a: any[]): void => {}
+Execute:
+  AssertEqual 'typescriptParens', SyntaxAt(1, 9)
+  AssertEqual 'typescriptRestOrSpread', SyntaxAt(1, 10)
+  AssertEqual 'typescriptCall', SyntaxAt(1, 13)
+
+Given typescript (parenthesized arrow function):
+  let a = ((...a: any[]) => {})
+Execute:
+  AssertEqual 'typescriptParens', SyntaxAt(1, 9)
+  AssertEqual 'typescriptParens', SyntaxAt(1, 10)
+  AssertEqual 'typescriptRestOrSpread', SyntaxAt(1, 11)
+  AssertEqual 'typescriptCall', SyntaxAt(1, 14)
+
+Given typescript (parenthesized empty arrow function):
+  let a = ( () => {} )
+Execute:
+  AssertEqual 'typescriptParens', SyntaxAt(1, 9)
+  AssertEqual 'typescriptParens', SyntaxAt(1, 11)
+  AssertEqual 'typescriptParens', SyntaxAt(1, 12)
+  AssertEqual 'typescriptArrowFuncArg', SyntaxAt(1, 13)
+  AssertEqual 'typescriptArrowFunc', SyntaxAt(1, 14)
+  AssertEqual 'typescriptArrowFunc', SyntaxAt(1, 15)
+  AssertEqual 'typescriptParenExp', SyntaxAt(1, 16)
+
+Given typescript (parenthesized arrow function with return type):
+  let a = ((...a: any[]): void => {})
+Execute:
+  AssertEqual 'typescriptParens', SyntaxAt(1, 9)
+  AssertEqual 'typescriptParens', SyntaxAt(1, 10)
+  AssertEqual 'typescriptRestOrSpread', SyntaxAt(1, 11)
+  AssertEqual 'typescriptCall', SyntaxAt(1, 14)
+
+Given typescript (multiline tuple type):
+  type Tuple = [
+    /* Name */ string,
+  ]
+Execute:
+  AssertEqual 'typescriptComment', SyntaxAt(2, 8)
+  AssertEqual 'typescriptPredefinedType', SyntaxAt(2, 18)
+
+Given typescript (assertion functions for nullish assertion):
+  function assert(cond: any): asserts cond {
+    if (!cond) throw new Error('oops!');
+  }
+Execute:
+  AssertEqual 'typescriptAssertType', SyntaxAt(1, 29)
+  AssertEqual 'typescriptTypeReference', SyntaxAt(1, 37)
+
+Given typescript (assertion functions for type assertion):
+  function assertString(v: any): asserts v is string {
+    if (typeof v !== 'stirng') throw new Error('oops!');
+  }
+Execute:
+  AssertEqual 'typescriptAssertType', SyntaxAt(1, 32)
+  AssertEqual 'typescriptUserDefinedType', SyntaxAt(1, 42)
+
+Given typescript (asserts keyword only in type is highlighted):
+  asserts('hello')
+  asserts += 1
+Execute:
+  AssertNotEqual 'typescriptAssertType', SyntaxAt(1, 1)
+  AssertNotEqual 'typescriptAssertType', SyntaxAt(2, 1)
+
+Given typescript (optional chaining):
+  test?.optional?.chaining
+Execute:
+  AssertEqual 'typescriptDotNotation', SyntaxAt(1, 5)
+  AssertEqual 'typescriptDotNotation', SyntaxAt(1, 15)
+
+Given typescript (special characters in template string):
+  `nl\nbs\\bt\`foo`
+Execute:
+  AssertEqual 'typescriptTemplate', SyntaxAt(1, 1)
+  AssertEqual 'typescriptSpecial', SyntaxAt(1, 4)
+  AssertEqual 'typescriptTemplate', SyntaxAt(1, 6)
+  AssertEqual 'typescriptSpecial', SyntaxAt(1, 8)
+  AssertEqual 'typescriptTemplate', SyntaxAt(1, 10)
+  AssertEqual 'typescriptSpecial', SyntaxAt(1, 12)
+  AssertEqual 'typescriptTemplate', SyntaxAt(1, 14)
+  AssertEqual 'typescriptTemplate', SyntaxAt(1, 17)
+
+Given typescript (private class instance field):
+  class C {
+    #abc = 10;
+    foo() {
+      this.#abc;
+    }
+  }
+Execute:
+  " At '#' in '#abc'
+  AssertEqual 'typescriptMember', SyntaxAt(2, 3)
+  " At 'c' in '#abc'
+  AssertEqual 'typescriptMember', SyntaxAt(2, 6)
+
+Given typescript (type-only import and export statements):
+  import type Foo from "mod";
+  import type {Foo, Bar} from "mod";
+  export type {SomeThing};
+  type Foo = number;
+  export type Foo = number;
+Execute:
+  AssertEqual 'typescriptImportType', SyntaxAt(1, 8)
+  AssertNotEqual 'typescriptAliasDeclaration', SyntaxAt(1, 13)
+  AssertEqual 'typescriptImportType', SyntaxAt(2, 8)
+  AssertNotEqual 'typescriptAliasDeclaration', SyntaxAt(2, 13)
+  AssertEqual 'typescriptExportType', SyntaxAt(3, 8)
+  AssertNotEqual 'typescriptAliasDeclaration', SyntaxAt(3, 13)
+  " Check `type Foo = ...` and `export type Foo = ...` are not broken
+  AssertEqual 'typescriptAliasKeyword', SyntaxAt(4, 1)
+  AssertEqual 'typescriptAliasDeclaration', SyntaxAt(4, 6)
+  AssertEqual 'typescriptAliasKeyword', SyntaxAt(5, 8)
+  AssertEqual 'typescriptAliasDeclaration', SyntaxAt(5, 13)
+
+Given typescript (multi-line union (issue 162)):
+  type Foo =
+    | { bar: string }
+    | { baz?(): number }
+Execute:
+  AssertEqual 'typescriptUnion', SyntaxAt(3, 3)
+  AssertEqual 'typescriptMember', SyntaxAt(3, 7)
+
+Given typescript (@ts-* magic comments):
+  // @ts-ignore
+  // @ts-ignore: ignore this
+  // @ts-expect-error
+  // @ts-expect-error: for some reasons
+  // @ts-not-magic
+Execute:
+  " Check @ts-ignore
+  AssertEqual 'typescriptMagicComment', SyntaxAt(1, 4)
+  AssertEqual 'typescriptMagicComment', SyntaxAt(2, 4)
+  " Check @ts-expect-error
+  AssertEqual 'typescriptMagicComment', SyntaxAt(3, 4)
+  AssertEqual 'typescriptMagicComment', SyntaxAt(4, 4)
+  " Starts with '@ts-' but not magic
+  AssertNotEqual 'typescriptMagicComment', SyntaxAt(5, 4)
+
+Given typescript (number literals with prefixes (issue 184)):
+  0xc0ffee
+  0b101010
+  0o755644
+Execute:
+  AssertEqual 'typescriptNumber', SyntaxAt(1, 2)
+  AssertEqual 'typescriptNumber', SyntaxAt(2, 2)
+  AssertEqual 'typescriptNumber', SyntaxAt(3, 2)
+
+Given typescript (number literals without prefixes (PR 186)):
+  0
+  123
+  1.2
+  123e4
+  1.2e4
+  0E4
+  1e+1
+  1e-1
+  1_2_3.4_5e6_7
+Execute:
+  " 0
+  AssertEqual 'typescriptNumber', SyntaxAt(1, 1)
+
+  " 1 in 123
+  AssertEqual 'typescriptNumber', SyntaxAt(2, 1)
+  " 3 in 123
+  AssertEqual 'typescriptNumber', SyntaxAt(2, 3)
+
+  " 1 in 1.2
+  AssertEqual 'typescriptNumber', SyntaxAt(3, 1)
+  " . in 1.2
+  AssertEqual 'typescriptNumber', SyntaxAt(3, 2)
+  " 2 in 1.2
+  AssertEqual 'typescriptNumber', SyntaxAt(3, 3)
+
+  " e in 123e4
+  AssertEqual 'typescriptNumber', SyntaxAt(4, 4)
+  " 4 in 123e4
+  AssertEqual 'typescriptNumber', SyntaxAt(4, 5)
+
+  " e in 1.2e4
+  AssertEqual 'typescriptNumber', SyntaxAt(5, 4)
+  " 4 in 1.2e4
+  AssertEqual 'typescriptNumber', SyntaxAt(5, 5)
+
+  " E in 0E4
+  AssertEqual 'typescriptNumber', SyntaxAt(6, 2)
+
+  " + in 1e+1
+  AssertEqual 'typescriptNumber', SyntaxAt(7, 3)
+
+  " - in 1e-1
+  AssertEqual 'typescriptNumber', SyntaxAt(8, 3)
+
+  " 1 in 1_2_3.4_5e6_7
+  AssertEqual 'typescriptNumber', SyntaxAt(9, 1)
+  " 3 in 1_2_3.4_5e6_7
+  AssertEqual 'typescriptNumber', SyntaxAt(9, 5)
+  " 4 in 1_2_3.4_5e6_7
+  AssertEqual 'typescriptNumber', SyntaxAt(9, 7)
+  " 5 in 1_2_3.4_5e6_7
+  AssertEqual 'typescriptNumber', SyntaxAt(9, 9)
+  " 7 in 1_2_3.4_5e6_7
+  AssertEqual 'typescriptNumber', SyntaxAt(9, 11)
+  " 9 in 1_2_3.4_5e6_7
+  AssertEqual 'typescriptNumber', SyntaxAt(9, 13)
