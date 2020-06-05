@@ -168,7 +168,7 @@ nnoremap <silent> <C-p> :FZF<CR>
 
 " Lightline status line plugin
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
+    \ 'colorscheme': 'srcery_drk',
     \ 'component_function': {
     \   'fileformat': 'LightlineFileformat',
     \   'fileencoding': 'LightlineFileencoding',
