@@ -44,7 +44,7 @@ if has("patch-7.4-1142")
       syn iskeyword @,48-57,_,128-167,224-235,$,-
     else
       syn iskeyword @,48-57,_,128-167,224-235,$
-  endif
+    endif
   else
     if exists("main_syntax") && main_syntax == 'html'
       syn iskeyword @,48-57,_,192-255,$,-
@@ -241,7 +241,7 @@ syntax keyword javascriptExport                export from default
 syntax match   javascriptImportPattern         contained /\*/
 
 " Keywords
-syntax keyword javascriptIdentifier            arguments this nextgroup=@javascriptAfterIdentifier
+syntax keyword javascriptIdentifier            arguments this globalThis nextgroup=@javascriptAfterIdentifier
 syntax keyword javascriptVariable              let var const nextgroup=javascriptIdentifierName skipwhite
 syntax keyword javascriptOperator              delete instanceof typeof void in nextgroup=@javascriptValue,@javascriptTypes skipwhite skipempty
 syntax keyword javascriptOperator              new nextgroup=javascriptNewTarget,@javascriptValue,@javascriptTypes skipwhite skipempty
