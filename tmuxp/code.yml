@@ -1,0 +1,25 @@
+session_name: code
+start_directory: ~/dev/
+windows:
+  - window_name: window_one
+    focus: true
+    layout: tiled
+    panes:
+      - 'pane'
+      - 'pane'
+      - 'pane'
+      - 'pane'
+  - window_name: window_one
+    layout: tiled
+    panes:
+      - 'pane'
+      - 'pane'
+      - 'pane'
+      - 'pane'
+  - window_name: window_one
+    layout: tiled
+    panes:
+      - 'pane'
+      - 'pane'
+      - 'pane'
+      - 'pane'
