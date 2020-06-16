@@ -6,6 +6,7 @@ if exists('g:vscode')
   nmap gcc <Plug>VSCodeCommentaryLine
 
   nnoremap <silent> <leader>f :<C-u>call VSCodeCall('editor.action.formatDocument')<CR>
+  nnoremap <silent> <leader><Space> :<C-u>call VSCodeNotify('extension.advancedOpenFile')<CR>
 else
   " ordinary neovim
 endif
