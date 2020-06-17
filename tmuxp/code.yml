@@ -9,17 +9,26 @@ windows:
       - 'pane'
       - 'pane'
       - 'pane'
-  - window_name: window_one
+  - window_name: window_two
     layout: tiled
     panes:
       - 'pane'
       - 'pane'
       - 'pane'
       - 'pane'
-  - window_name: window_one
-    layout: tiled
+  - window_name: window_three
+    layout: main-horizontal
+    options:
+      main-pane-height: 45
     panes:
       - 'pane'
+      - 'pane'
+      - 'pane'
+  - window_name: window_four
+    layout: main-horizontal
+    options:
+      main-pane-height: 45
+    panes:
       - 'pane'
       - 'pane'
       - 'pane'
