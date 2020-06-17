@@ -165,6 +165,7 @@ end
 " Add fzf fuzzy file lookup
 set rtp+=/usr/local/opt/fzf
 nnoremap <silent> <C-p> :FZF<CR>
+nnoremap <silent> <leader><Space> :FZF<CR>
 
 " Lightline status line plugin
 let g:lightline = {
