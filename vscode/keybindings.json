@@ -10,5 +10,10 @@
     "command": "vscode-neovim.compositeEscape2",
     "key": "d",
     "when": "neovim.mode == insert"
+  },
+  {
+    "command": "workbench.action.quickOpen",
+    "key": "[Backslash] [Space]",
+    "when": "!editorFocus"
   }
 ]
