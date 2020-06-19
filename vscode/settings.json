@@ -40,6 +40,8 @@
     "window.inactiveBorder": "#333"
   },
   "workbench.colorTheme": "Rubber",
+  "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.showTabs": false,
   "workbench.settings.enableNaturalLanguageSearch": false
 }
