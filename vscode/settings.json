@@ -16,7 +16,7 @@
   "editor.wordWrap": "on",
   "explorer.compactFolders": false,
   "explorer.enableDragAndDrop": false,
-  "explorer.openEditors.visible": 0,
+  "explorer.openEditors.visible": 9,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": false,
@@ -26,6 +26,7 @@
     "VisualStudioExptTeam.vscodeintellicode",
     "esbenp.prettier-vscode",
     "jit-y.vscode-advanced-open-file",
+    "sissel.shopify-liquid",
     "sleistner.vscode-fileutils"
   ],
   "telemetry.enableCrashReporter": false,
