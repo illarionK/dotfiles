@@ -1,4 +1,11 @@
 {
+  "[markdown]": {
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.quickSuggestions": false,
+    "editor.renderWhitespace": "all",
+    "editor.snippetSuggestions": "none"
+  },
   "breadcrumbs.filePath": "on",
   "breadcrumbs.symbolPath": "off",
   "editor.autoClosingBrackets": "never",
@@ -9,6 +16,7 @@
   "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
+  "editor.formatOnSave": false,
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
   "editor.suggestSelection": "first",
@@ -22,6 +30,8 @@
   "git.autofetch": false,
   "git.enabled": false,
   "git.path": null,
+  "javascript.implicitProjectConfig.checkJs": true,
+  "javascript.validate.enable": true,
   "remote.containers.defaultExtensions": [
     "VisualStudioExptTeam.vscodeintellicode",
     "esbenp.prettier-vscode",
@@ -31,6 +41,10 @@
   ],
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
+  "terminal.integrated.enableBell": true,
+  "terminal.integrated.enableFileLinks": false,
+  "terminal.integrated.macOptionIsMeta": true,
+  "typescript.validate.enable": true,
   "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 0,
