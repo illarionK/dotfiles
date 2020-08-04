@@ -34,8 +34,14 @@ type ${1:Props} = {
 */
 endsnippet
 
+snippet "typei?m?p?o?r?t?" "Type import in JSDoc" r
+/**
+	* @typedef { import("${1}").${2:MyType} } $2
+	*/
+endsnippet
+
 snippet type
-/*: ${VISUAL}${1} */
+/** @type {${1:unknown}} ${2}*/
 endsnippet
 
 snippet assign
