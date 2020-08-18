@@ -38,7 +38,6 @@
   "python.languageServer": "Microsoft",
   "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
   "remote.containers.defaultExtensions": [
-    "VisualStudioExptTeam.vscodeintellicode",
     "esbenp.prettier-vscode",
     "jit-y.vscode-advanced-open-file",
     "sissel.shopify-liquid",
