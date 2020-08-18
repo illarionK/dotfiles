@@ -58,3 +58,7 @@ alias docker.cleanimage="docker images --filter dangling=true -q | xargs docker 
 function compress-pdf() {
   gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -dCompatibilityLevel=1.4 -sOutputFile=$2 $1
 }
+
+function datagrip() {
+  open -na "DataGrip" ./
+}
