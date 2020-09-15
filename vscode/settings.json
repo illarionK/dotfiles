@@ -18,7 +18,7 @@
   "editor.dragAndDrop": false,
   "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.formatOnSave": false,
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
@@ -53,12 +53,10 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
-    "editorHoverWidget.background": "#00000095",
-    "editorSuggestWidget.background": "#00000095",
     "window.activeBorder": "#669933",
     "window.inactiveBorder": "#333"
   },
-  "workbench.colorTheme": "Rubber",
+  "workbench.colorTheme": "Alabaster",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": false,
