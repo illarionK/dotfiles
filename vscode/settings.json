@@ -6,9 +6,6 @@
     "editor.renderWhitespace": "all",
     "editor.snippetSuggestions": "none"
   },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  },
   "breadcrumbs.filePath": "on",
   "breadcrumbs.symbolPath": "off",
   "editor.autoClosingBrackets": "never",
@@ -35,8 +32,6 @@
   "git.path": null,
   "javascript.implicitProjectConfig.checkJs": true,
   "javascript.validate.enable": true,
-  "python.languageServer": "Microsoft",
-  "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
   "remote.containers.defaultExtensions": [
     "esbenp.prettier-vscode",
     "jit-y.vscode-advanced-open-file",
@@ -50,7 +45,6 @@
   "terminal.integrated.macOptionIsMeta": true,
   "typescript.validate.enable": true,
   "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "window.activeBorder": "#669933",
