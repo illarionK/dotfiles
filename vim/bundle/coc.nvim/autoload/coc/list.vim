@@ -121,10 +121,14 @@ endfunction
 
 function! coc#list#start_prompt()
   if s:activated | return | endif
-  if s:gui && !empty(s:saved_cursor)
-    set guicursor+=a:ver1-Cursor-blinkoff999
-  elseif s:is_vim
-    set t_ve=
+  if !get(g:, 'coc_disable_transparent_cursor', 0)
+    if s:gui
+      if has('nvim-0.5.0') && !empty(s:saved_cursor)
+        set guicursor+=a:ver1-CocCursorTransparent/lCursor
+      endif
+    elseif s:is_vim
+      set t_ve=
+    endif
   endif
   let s:activated = 1
   try
@@ -162,7 +166,8 @@ endfunction
 
 function! coc#list#options(...)
   let list = ['--top', '--tab', '--normal', '--no-sort', '--input', '--strict',
-        \ '--regex', '--interactive', '--number-select', '--auto-preview']
+        \ '--regex', '--interactive', '--number-select', '--auto-preview',
+        \ '--ignore-case', '--no-quit', '--no-resize', '--first']
   if get(g:, 'coc_enabled', 0)
     let names = coc#rpc#request('listNames', [])
     call extend(list, names)
@@ -171,15 +176,20 @@ function! coc#list#options(...)
 endfunction
 
 function! coc#list#stop_prompt(...)
-  if get(a:, 1, 0) == 0
-    if s:gui
-      let &guicursor = s:saved_cursor
+  if get(a:, 1, 0) == 0 && !get(g:, 'coc_disable_transparent_cursor',0)
+    " neovim has bug with revert empty &guicursor
+    if s:gui && !empty(s:saved_cursor)
+      if has('nvim-0.5.0')
+        set guicursor+=a:ver1-Cursor/lCursor
+        let &guicursor = s:saved_cursor
+      endif
     elseif s:is_vim
       let &t_ve = s:saved_ve
     endif
   endif
   if s:activated
     let s:activated = 0
+    echo ""
     call feedkeys("\u26d4", 'int')
   endif
 endfunction
@@ -201,7 +211,7 @@ function! coc#list#create(position, height, name, numberSelect)
     setl number
   else
     setl nonumber
-    setl foldcolumn=2
+    setl signcolumn=yes
   endif
   return [bufnr('%'), win_getid()]
 endfunction
@@ -219,8 +229,14 @@ function! coc#list#setup(source)
   call setwinvar(winnr(), '&statusline', join(statusParts, ' '))
   setl buftype=nofile nobuflisted nofen nowrap
   setl norelativenumber bufhidden=wipe cursorline winfixheight
-  setl tabstop=1 nolist nocursorcolumn
+  setl tabstop=1 nolist nocursorcolumn undolevels=-1
   setl signcolumn=auto
+  if has('nvim-0.5.0') || has('patch-8.1.0864')
+    setl scrolloff=0
+  endif
+  if exists('&cursorlineopt')
+    setl cursorlineopt=both
+  endif
   setl filetype=list
   syntax case ignore
   let source = a:source[8:]
