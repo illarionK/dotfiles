@@ -13,6 +13,9 @@ set clipboard+=ideaput
 set surround
 set commentary
 
+set visualbell
+set noerrorbells
+
 let mapleader = "\"
 
 imap fd <Esc>

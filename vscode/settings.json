@@ -21,6 +21,8 @@
   "editor.scrollBeyondLastLine": false,
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "onlySnippets",
+  "editor.wordBasedSuggestions": true,
+  "editor.wordBasedSuggestionsMode": "allDocuments",
   "editor.wordWrap": "on",
   "explorer.compactFolders": false,
   "explorer.enableDragAndDrop": false,
@@ -44,7 +46,16 @@
   "terminal.integrated.enableFileLinks": false,
   "terminal.integrated.macOptionIsMeta": true,
   "typescript.validate.enable": true,
-  "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.easymotion": false,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["f", "d"],
+      "after": ["<Esc>"]
+    }
+  ],
   "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "window.activeBorder": "#669933",
