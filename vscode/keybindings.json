@@ -1,19 +1,22 @@
 [
   {
-    "args": "f",
-    "command": "vscode-neovim.compositeEscape1",
-    "key": "f",
-    "when": "neovim.mode == insert"
+    "key": "ctrl+h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
   },
   {
-    "args": "d",
-    "command": "vscode-neovim.compositeEscape2",
-    "key": "d",
-    "when": "neovim.mode == insert"
+    "key": "ctrl+l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
   },
   {
-    "command": "workbench.action.quickOpen",
-    "key": "[Backslash] [Space]",
-    "when": "!editorFocus && !inputFocus"
+    "key": "ctrl+k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
   }
 ]
