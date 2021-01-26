@@ -76,6 +76,10 @@
     {
       "before": ["<leader>", "e"],
       "after": ["g", "h"]
+    },
+    {
+      "before": ["<leader>", "n", "e"],
+      "after": ["editor.action.marker.next"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
