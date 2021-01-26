@@ -35,6 +35,7 @@
   "js/ts.implicitProjectConfig.checkJs": true,
   "javascript.validate.enable": true,
   "remote.containers.defaultExtensions": [
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "jit-y.vscode-advanced-open-file",
     "sissel.shopify-liquid",
