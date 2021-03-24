@@ -18,5 +18,9 @@
     "key": "ctrl+j",
     "command": "workbench.action.focusBelowGroup",
     "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+alt+cmd+p",
+    "command": "extension.advancedOpenFile"
   }
 ]

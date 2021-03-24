@@ -1,10 +1,31 @@
 {
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[liquid]": {
+    "editor.defaultFormatter": "sissel.shopify-liquid"
+  },
   "[markdown]": {
     "editor.acceptSuggestionOnEnter": "off",
     "editor.parameterHints.enabled": false,
     "editor.quickSuggestions": false,
     "editor.renderWhitespace": "all",
     "editor.snippetSuggestions": "none"
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false
+    },
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false
+    },
+    "editor.formatOnSave": true
   },
   "breadcrumbs.filePath": "on",
   "breadcrumbs.symbolPath": "off",
@@ -18,6 +39,11 @@
   "editor.fontSize": 13,
   "editor.formatOnSave": false,
   "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "comments": false,
+    "other": true,
+    "strings": false
+  },
   "editor.scrollBeyondLastLine": false,
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "onlySnippets",
@@ -32,31 +58,38 @@
   "git.autofetch": false,
   "git.enabled": false,
   "git.path": null,
-  "js/ts.implicitProjectConfig.checkJs": true,
   "javascript.validate.enable": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "liquid.format": false,
+  "liquid.rules": {
+    "format": false
+  },
   "remote.containers.defaultExtensions": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "jit-y.vscode-advanced-open-file",
-    "sissel.shopify-liquid",
     "sleistner.vscode-fileutils"
   ],
+  "search.useGlobalIgnoreFiles": true,
+  "search.useIgnoreFiles": true,
+  "tabnine.experimentalAutoImports": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.enableBell": true,
   "terminal.integrated.enableFileLinks": false,
   "terminal.integrated.macOptionIsMeta": true,
+  "typescript.updateImportsOnFileMove.enabled": "never",
   "typescript.validate.enable": true,
-  "vim.enableNeovim": true,
-  "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.easymotion": false,
+  "vim.enableNeovim": true,
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["f", "d"],
-      "after": ["<Esc>"]
+      "after": ["<Esc>"],
+      "before": ["f", "d"]
     }
   ],
+  "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "<space>"],
@@ -75,12 +108,16 @@
       "commands": ["editor.action.refactor"]
     },
     {
-      "before": ["<leader>", "e"],
-      "after": ["g", "h"]
+      "after": ["g", "h"],
+      "before": ["K"]
     },
     {
-      "before": ["<leader>", "n", "e"],
-      "after": ["editor.action.marker.next"]
+      "after": ["g", "h"],
+      "before": ["<leader>", "e"]
+    },
+    {
+      "after": ["editor.action.marker.next"],
+      "before": ["<leader>", "n", "e"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -98,5 +135,12 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": false,
-  "workbench.settings.enableNaturalLanguageSearch": false
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.startupEditor": "none",
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideActivityBar": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": true
 }
