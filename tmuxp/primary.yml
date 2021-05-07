@@ -2,27 +2,20 @@ session_name: primary
 start_directory: ~/dev/
 windows:
   - window_name: window_one
-    # layout: '5195,191x55,0,0[191x44,0,0,1,191x10,0,45{95x10,0,45,9,95x10,96,45,26}]'
+    layout: '0c2b,272x67,0,0[272x43,0,0,1,272x23,0,44{136x23,0,44,2,135x23,137,44,3}]'
     focus: true
-    layout: main-horizontal
-    options:
-      main-pane-height: 42
     panes:
       - 'pane'
       - 'pane'
       - 'pane'
   - window_name: window_two
-    layout: main-horizontal
-    options:
-      main-pane-height: 42
+    layout: '0c2b,272x67,0,0[272x43,0,0,1,272x23,0,44{136x23,0,44,2,135x23,137,44,3}]'
     panes:
       - 'pane'
       - 'pane'
       - 'pane'
   - window_name: window_three
-    layout: main-horizontal
-    options:
-      main-pane-height: 42
+    layout: '0c2b,272x67,0,0[272x43,0,0,1,272x23,0,44{136x23,0,44,2,135x23,137,44,3}]'
     panes:
       - 'pane'
       - 'pane'
