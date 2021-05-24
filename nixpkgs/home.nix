@@ -2,9 +2,7 @@
 
 let
 
-  python-with-global-packages = pkgs.python3.withPackages(ps: with ps; [
-    pip
-  ]);
+  python-with-global-packages = pkgs.python3;
 
   vim-with-python = (pkgs.vim_configurable.override { python = python-with-global-packages; });
 
