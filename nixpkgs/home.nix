@@ -6,6 +6,8 @@ let
     pip
   ]);
 
+  vim-with-python = (pkgs.vim_configurable.override { python = python-with-global-packages; });
+
 in
 
 {
@@ -29,9 +31,9 @@ in
     pkgs.ruby
     pkgs.tmux
     pkgs.tree
-    pkgs.vim
     pkgs.wget
     python-with-global-packages
+    vim-with-python
   ];
 
   # This value determines the Home Manager release that your
