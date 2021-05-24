@@ -24,6 +24,7 @@ in
     pkgs.git
     pkgs.htop
     pkgs.jq
+    pkgs.mc
     pkgs.neovim
     pkgs.ripgrep
     pkgs.ruby
