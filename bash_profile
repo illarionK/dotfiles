@@ -16,4 +16,4 @@ PATH=$PATH:$HOME/Library/Python/2.7/bin # Add Powerline to PATH
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e /Users/hex/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/hex/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

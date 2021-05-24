@@ -107,3 +107,4 @@ export DISABLE_AUTO_TITLE='true'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if [ -e /Users/hex/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/hex/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
