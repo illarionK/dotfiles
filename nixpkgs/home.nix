@@ -26,8 +26,8 @@ in
     pkgs.jq
     pkgs.mc
     pkgs.neovim
+    pkgs.parallel
     pkgs.ripgrep
-    pkgs.ruby
     pkgs.tmux
     pkgs.tree
     pkgs.wget
