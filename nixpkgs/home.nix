@@ -20,7 +20,6 @@ in
   home.packages = [
     # pkgs is the set of all packages in the default home.nix implementation
     pkgs.ag
-    pkgs.fzf
     pkgs.git
     pkgs.htop
     pkgs.jq
