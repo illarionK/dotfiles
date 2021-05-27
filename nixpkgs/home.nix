@@ -34,6 +34,11 @@ in
     pkgs.wget
     python-with-global-packages
     vim-with-python
+    (pkgs.ffmpeg-full.override {
+      nonfreeLicensing = true;
+      fdkaacExtlib = true;
+      fdk_aac = pkgs.fdk_aac;
+    })
   ];
 
   # This value determines the Home Manager release that your
