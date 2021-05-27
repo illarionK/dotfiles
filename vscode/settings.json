@@ -69,7 +69,8 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "jit-y.vscode-advanced-open-file",
-    "sleistner.vscode-fileutils"
+    "sleistner.vscode-fileutils",
+    "visualstudioexptteam.vscodeintellicode"
   ],
   "search.useGlobalIgnoreFiles": true,
   "search.useIgnoreFiles": true,
@@ -90,7 +91,7 @@
       "before": ["f", "d"]
     }
   ],
-  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.neovimPath": "/Users/hex/.nix-profile/bin/nvim",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "<space>"],
