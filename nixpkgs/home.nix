@@ -20,6 +20,7 @@ in
   home.packages = [
     # pkgs is the set of all packages in the default home.nix implementation
     pkgs.ag
+    pkgs.exa
     pkgs.git
     pkgs.htop
     pkgs.jq
@@ -27,6 +28,7 @@ in
     pkgs.neovim
     pkgs.parallel
     pkgs.ripgrep
+    pkgs.rsync
     pkgs.tmux
     pkgs.tree
     pkgs.wget
