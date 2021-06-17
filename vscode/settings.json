@@ -130,6 +130,9 @@
   ],
   "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
+    "editorSuggestWidget.selectedForeground": "#F7F7F7",
+    "list.focusHighlightForeground": "#F7F7F7",
+    "quickInputList.focusForeground": "#F7F7F7",
     "window.activeBorder": "#669933",
     "window.inactiveBorder": "#333"
   },
