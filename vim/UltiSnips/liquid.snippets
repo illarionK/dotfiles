@@ -89,8 +89,18 @@ snippet inc
 {%- include '${1}' -%}
 endsnippet
 
+snippet render
+{%- render '${1}' -%}
+endsnippet
+
 snippet section
 {% section '${1}' %}
+endsnippet
+
+snippet params
+{% comment %}Snippet Parameters -->{% endcomment %}
+${VISUAL}${1}
+{% comment %}<-- Snippet Parameters{% endcomment %}
 endsnippet
 
 # Jekyll-specific snippets
