@@ -79,7 +79,7 @@
   ],
   "search.useGlobalIgnoreFiles": true,
   "search.useIgnoreFiles": true,
-  "tabnine.experimentalAutoImports": true,
+  "tabnine.experimentalAutoImports": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.enableBell": true,
