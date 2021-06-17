@@ -139,7 +139,7 @@
       "editorSuggestWidget.selectedForeground": "#F7F7F7",
       "list.focusHighlightForeground": "#F7F7F7",
       "quickInputList.focusForeground": "#F7F7F7",
-      "editor.lineHighlightBackground": "#F0E0FF"
+      "editor.lineHighlightBackground": "#E6E6E6"
     },
     "window.activeBorder": "#669933",
     "window.inactiveBorder": "#333"
